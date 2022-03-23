@@ -266,7 +266,7 @@ void DefaultCollisionsWidget::finishGeneratingCollisionTable()
 void DefaultCollisionsWidget::generateCollisionTable(unsigned int* collision_progress)
 {
   unsigned int num_trials = density_slider_->value() * 1000 + 1000;  // scale to trials amount
-  double min_frac = (double)fraction_spinbox_->value() / 100.0;
+  double min_frac = static_cast<double>(fraction_spinbox_->value()) / 100.0;
 
   const bool verbose = true;  // Output benchmarking and statistics
   const bool include_never_colliding = true;

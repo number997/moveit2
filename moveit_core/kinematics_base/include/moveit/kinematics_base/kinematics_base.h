@@ -300,7 +300,7 @@ public:
                    const kinematics::KinematicsQueryOptions& options = kinematics::KinematicsQueryOptions(),
                    const moveit::core::RobotState* context_state = nullptr) const
   {
-    (void)context_state;
+    static_cast<void>(context_state);
     // For IK solvers that do not support multiple poses, fall back to single pose call
     if (ik_poses.size() == 1)
     {

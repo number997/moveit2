@@ -178,17 +178,17 @@ public:
 
   virtual double distanceRobot(const moveit::core::RobotState& state, bool verbose = false) const
   {
-    (void)state;
-    (void)verbose;
+    static_cast<void>(state);
+    static_cast<void>(verbose);
     return 0.0;
   }
 
   virtual double distanceRobot(const moveit::core::RobotState& state, const AllowedCollisionMatrix& acm,
                                bool verbose = false) const
   {
-    (void)state;
-    (void)acm;
-    (void)verbose;
+    static_cast<void>(state);
+    static_cast<void>(acm);
+    static_cast<void>(verbose);
     return 0.0;
   }
 

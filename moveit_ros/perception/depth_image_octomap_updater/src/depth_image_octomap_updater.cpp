@@ -242,7 +242,7 @@ void DepthImageOctomapUpdater::depthImageCallback(const sensor_msgs::msg::Image:
         average_callback_dt_ = dt_start;
       else
         average_callback_dt_ =
-            ((image_callback_count_ - 1) * average_callback_dt_ + dt_start) / (double)image_callback_count_;
+            ((image_callback_count_ - 1) * average_callback_dt_ + dt_start) / static_cast<double>(image_callback_count_);
     }
   }
   else
@@ -482,7 +482,7 @@ void DepthImageOctomapUpdater::depthImageCallback(const sensor_msgs::msg::Image:
           // not filtered
           if (labels_row[x] == mesh_filter::MeshFilterBase::BACKGROUND)
           {
-            float zz = (float)input_row[x] * 1e-3;  // scale from mm to m
+            float zz = static_cast<float>(input_row[x]) * 1e-3;  // scale from mm to m
             float yy = y_cache_[y] * zz;
             float xx = x_cache_[x] * zz;
             /* transform to map frame */

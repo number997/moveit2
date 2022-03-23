@@ -62,7 +62,7 @@ public:
 
   bool waitForExecution(const rclcpp::Duration& timeout = rclcpp::Duration(0.0)) override
   {
-    (void)timeout;
+    static_cast<void>(timeout);
     return false;
   }
 

@@ -839,7 +839,7 @@ void moveit_benchmarks::BenchmarkExecution::collectMetrics(RunData& rundata,
         if (d > 0.0)  // in case of collision, distance is negative
           clearance += d;
       }
-      clearance /= (double)p.getWayPointCount();
+      clearance /= static_cast<double>(p.getWayPointCount());
 
       // compute smoothness
       if (p.getWayPointCount() > 2)
@@ -870,7 +870,7 @@ void moveit_benchmarks::BenchmarkExecution::collectMetrics(RunData& rundata,
           }
           a = b;
         }
-        smoothness /= (double)p.getWayPointCount();
+        smoothness /= static_cast<double>(p.getWayPointCount());
       }
       rundata["path_" + mp_res.description_[j] + "_correct BOOLEAN"] = boost::lexical_cast<std::string>(correct);
       rundata["path_" + mp_res.description_[j] + "_length REAL"] = boost::lexical_cast<std::string>(L);

@@ -178,8 +178,8 @@ void InteractiveMarkerDisplay::unsubscribe()
 
 void InteractiveMarkerDisplay::update(float wall_dt, float ros_dt)
 {
-  (void)wall_dt;
-  (void)ros_dt;
+  static_cast<void>(wall_dt);
+  static_cast<void>(ros_dt);
 
   interactive_marker_client_->update();
 

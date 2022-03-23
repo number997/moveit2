@@ -49,25 +49,25 @@ void get_bresenham3d_parameters(int p1x, int p1y, int p1z, int p2x, int p2y, int
   params->YIndex = params->Y1;
   params->ZIndex = params->Z1;
 
-  params->dx = fabs((double)(p2x - p1x));
-  params->dy = fabs((double)(p2y - p1y));
-  params->dz = fabs((double)(p2z - p1z));
+  params->dx = fabs(static_cast<double>(p2x - p1x));
+  params->dy = fabs(static_cast<double>(p2y - p1y));
+  params->dz = fabs(static_cast<double>(p2z - p1z));
   params->dx2 = params->dx << 1;
   params->dy2 = params->dy << 1;
   params->dz2 = params->dz << 1;
 
   // get direction of slope
-  if ((double)(p2x - p1x) < 0)
+  if (static_cast<double>(p2x - p1x) < 0)
     params->IncX = -1;
   else
     params->IncX = 1;
 
-  if ((double)(p2y - p1y) < 0)
+  if (static_cast<double>(p2y - p1y) < 0)
     params->IncY = -1;
   else
     params->IncY = 1;
 
-  if ((double)(p2z - p1z) < 0)
+  if (static_cast<double>(p2z - p1z) < 0)
     params->IncZ = -1;
   else
     params->IncZ = 1;

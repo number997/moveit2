@@ -911,7 +911,7 @@ void BenchmarkExecutor::collectMetrics(PlannerRunData& metrics,
         if (d > 0.0)  // in case of collision, distance is negative
           clearance += d;
       }
-      clearance /= (double)p.getWayPointCount();
+      clearance /= static_cast<double>(p.getWayPointCount());
 
       // compute smoothness
       if (p.getWayPointCount() > 2)
@@ -943,7 +943,7 @@ void BenchmarkExecutor::collectMetrics(PlannerRunData& metrics,
           }
           a = b;
         }
-        smoothness /= (double)p.getWayPointCount();
+        smoothness /= static_cast<double>(p.getWayPointCount());
       }
       metrics["path_" + mp_res.description_[j] + "_correct BOOLEAN"] = boost::lexical_cast<std::string>(correct);
       metrics["path_" + mp_res.description_[j] + "_length REAL"] = moveit::core::toString(traj_len);

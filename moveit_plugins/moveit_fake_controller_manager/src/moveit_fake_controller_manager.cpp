@@ -116,7 +116,7 @@ public:
           ROS_ERROR_STREAM("Unknown fake controller type: " << type);
 
         moveit_controller_manager::MoveItControllerManager::ControllerState state;
-        state.default_ = controller_list[i].hasMember("default") ? (bool)controller_list[i]["default"] : false;
+        state.default_ = controller_list[i].hasMember("default") ? static_cast<bool>(controller_list[i]["default"]) : false;
         state.active_ = true;
 
         controller_states_[name] = state;
